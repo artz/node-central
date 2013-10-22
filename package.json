@@ -1,0 +1,32 @@
+{
+  "name": "node-scout",
+  "preferGlobal": true,
+  "version": "0.0.1",
+  "author": "Dave Artz <dave@artzstudio.com>",
+  "description": "A simple app that scouts for fallen web sites and services.",
+  "bin": "./scout",
+  "scripts": {
+    "start": "node ./scout"
+  },
+  "main": "./scout",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artzstudio/node-scout.git"
+  },
+  "keywords": [
+    "phantom",
+    "phantomjs",
+    "scout",
+    "network",
+    "uptime",
+    "pingdom",
+    "monitor"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "dependencies": {
+    "colors": "~0.6.2"
+  }
+}

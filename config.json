@@ -1,0 +1,77 @@
+{
+	"name": "Airtz Laptop",
+	"host": "127.0.0.1",
+	"port": 2368725,
+	"alerts": {
+		"get": [{
+			"event": "status-code",
+			"criteria": {
+				"statusCode": {
+					"isNot": 200
+				}
+			},
+			"message": "{{options.name}} --> Status not 200 OK ({{results.statusCode}})"
+			},
+			{
+			"event": "connect-time",
+			"criteria": {
+				"connectTime": {
+					"isMoreThan": 100
+				}
+			},
+			"message": "{{options.name}} --> Long (100ms+) connect time ({{results.connectTime}})"
+			},
+			{
+			"event": "response-time",
+			"criteria": {
+				"responseTime": {
+					"isMoreThan": 1000
+				}
+			},
+			"message": "{{options.name}} --> Long (1000ms+) response time ({{results.responseTime}})"
+			},
+			{
+			"event": "content-match",
+			"criteria": {
+				"contentMatched": {
+					"is": false
+				}
+			},
+			"message": "{{options.name}} --> Missing expected content ({{options.content}})"
+		}]
+	},
+	"orders": [
+		{
+			"_id": 1,
+			"task": "get",
+			"options": {
+				"name": "AOL.com",
+				"url": "http://www.aol.com",
+				"content": "AOL Inc. All Rights Reserved"
+			},
+			"interval": 60,
+			"timeout": 5
+		},
+		{
+			"_id": 2,
+			"task": "get",
+			"options": {
+				"name": "AOL Autos",
+				"url": "http://autos.aol.com",
+				"content": "AOL Inc. All Rights Reserved"
+			},
+			"interval": 60,
+			"timeout": 5
+		},
+		{
+			"_id": 3,
+			"task": "navigate",
+			"options": {
+				"name": "AOL.com",
+				"url": "http://www.aol.com"
+			},
+			"interval": 1800,
+			"timeout": 20
+		}
+	]
+}
